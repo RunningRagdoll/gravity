@@ -1,13 +1,26 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scenes/Celestial_Body.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Models/Planet_Debug_256x256.png" type="Texture" id=2]
+[ext_resource path="res://Models/Orbit/Orbit.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 34.0151
 
 [node name="Main" type="Node2D"]
+pause_mode = 2
 
-[node name="Celestial_Body" parent="." instance=ExtResource( 1 )]
-position = Vector2( 500, 270 )
-custom_integrator = true
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 114, 290 )
+can_sleep = false
+linear_velocity = Vector2( 0, -10 )
 
-[node name="Celestial Body" parent="." instance=ExtResource( 1 )]
-position = Vector2( 500, 100 )
-custom_integrator = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="Orbit" parent="." instance=ExtResource( 3 )]
+position = Vector2( 513.999, 306.106 )
+radius = 0.0
