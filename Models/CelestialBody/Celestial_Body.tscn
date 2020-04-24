@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Models/Planet_Debug_256x256.png" type="Texture" id=1]
-[ext_resource path="res://Models/CelestialBody/GravityField.gd" type="Script" id=2]
-[ext_resource path="res://Models/CelestialBody/CelestialBody.gd" type="Script" id=3]
+[ext_resource path="res://Models/CelestialBody/Gravity_Field.gd" type="Script" id=2]
+[ext_resource path="res://Models/CelestialBody/Celestial_Body.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
