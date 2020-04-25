@@ -1,26 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Models/Planet_Debug_256x256.png" type="Texture" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Models/Orbit/Orbit.tscn" type="PackedScene" id=3]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 34.0151
 
 [node name="Main" type="Node2D"]
 pause_mode = 2
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2( 114, 290 )
-can_sleep = false
-linear_velocity = Vector2( 0, -10 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="RigidBody2D"]
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 2 )
-
 [node name="Orbit" parent="." instance=ExtResource( 3 )]
-position = Vector2( 513.999, 306.106 )
+position = Vector2( 521.753, 462.481 )
 radius = 0.0
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 302.412, 253.302 )
+rotation = -1.5708

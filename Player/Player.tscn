@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player/Spaceship_Normal_back_leg.png" type="Texture" id=1]
+[ext_resource path="res://Player/Spaceship_Diffuse_front.png" type="Texture" id=2]
+[ext_resource path="res://Player/Player.gd" type="Script" id=3]
+[ext_resource path="res://Player/Spaceship_Normal_front.png" type="Texture" id=4]
+[ext_resource path="res://Player/Spaceship_Diffuse_back_leg.png" type="Texture" id=5]
+
+[node name="Player" type="RigidBody2D"]
+angular_damp = 6.0
+script = ExtResource( 3 )
+engine_thrust = 1000
+jaw_thrust = 50000
+
+[node name="Ship front" type="Sprite" parent="."]
+rotation = 1.5708
+z_index = 1
+texture = ExtResource( 2 )
+normal_map = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 1.5708
+polygon = PoolVector2Array( -47.6729, 126.726, -24.9022, 56.5849, -25.9722, -59.8472, -21.7314, -85.0322, -16.051, -103.876, -6.59019, -122.588, -0.168869, -127.344, 6.72812, -122.588, 16, -104, 22.2135, -84.6822, 25.5971, -60.1455, 25.7373, 56.8425, 48.0172, 127.295, 21.9629, 101.682, -21.0075, 101.795 )
+
+[node name="Ship back leg" type="Sprite" parent="."]
+rotation = 1.5708
+z_index = -1
+texture = ExtResource( 5 )
+normal_map = ExtResource( 1 )

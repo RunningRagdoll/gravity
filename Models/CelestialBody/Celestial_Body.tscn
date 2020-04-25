@@ -5,23 +5,25 @@
 [ext_resource path="res://Models/CelestialBody/Celestial_Body.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 128.102
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 602.881
+radius = 2124.8
 
 [node name="Celestial Body" type="KinematicBody2D"]
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 
 [node name="Body" type="CollisionShape2D" parent="."]
-scale = Vector2( 3.2, 3.2 )
 shape = SubResource( 1 )
 
 [node name="Gravity Field" type="Area2D" parent="."]
+linear_damp = 0.0
+angular_damp = 0.0
 script = ExtResource( 2 )
 
 [node name="Field" type="CollisionShape2D" parent="Gravity Field"]
+modulate = Color( 1, 1, 1, 0.266667 )
 shape = SubResource( 2 )
