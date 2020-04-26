@@ -10,7 +10,7 @@
 [ext_resource path="res://Player/Camera/Camera_offset.gd" type="Script" id=8]
 
 [node name="Player" type="RigidBody2D"]
-gravity_scale = 10.0
+gravity_scale = 6.0
 contacts_reported = 1
 contact_monitor = true
 angular_damp = 6.0
