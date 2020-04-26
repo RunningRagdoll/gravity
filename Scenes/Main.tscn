@@ -6,10 +6,10 @@
 [node name="Main" type="Node2D"]
 pause_mode = 2
 
-[node name="Orbit" parent="." instance=ExtResource( 3 )]
-position = Vector2( 521.753, 462.481 )
-radius = 0.0
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 302.412, 253.302 )
+position = Vector2( 519.528, 188.684 )
 rotation = -1.5708
+
+[node name="Orbit" parent="." instance=ExtResource( 3 )]
+position = Vector2( 422.601, 485.926 )
+radius = 0.0

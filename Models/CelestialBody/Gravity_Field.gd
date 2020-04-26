@@ -1,7 +1,7 @@
 extends Area2D
 
 func _ready():
-	set_gravity_distance_scale(0.001)
+	set_gravity_distance_scale(0.00001)
 	set_gravity_is_point(true)
 	set_gravity_vector(Vector2.ZERO)
 	set_linear_damp(0.0)

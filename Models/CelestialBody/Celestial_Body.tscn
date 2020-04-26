@@ -8,7 +8,7 @@
 radius = 128.102
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 2124.8
+radius = 5807.4
 
 [node name="Celestial Body" type="KinematicBody2D"]
 script = ExtResource( 3 )
