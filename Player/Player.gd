@@ -8,6 +8,9 @@ var rotation_direction = 0
 var bouncing_velocity = Vector2()
 var max_speed = 5000
 
+signal crash_land
+signal reset_level
+
 func get_input():
 	if Input.is_action_pressed("ui_up"):
 		thrust = Vector2(engine_thrust, 0)
@@ -18,6 +21,8 @@ func get_input():
 		rotation_direction += 1
 	if Input.is_action_pressed("ui_left"):
 		rotation_direction -= 1
+	if Input.is_action_just_pressed("ui_accept"):
+		emit_signal("reset_level")
 
 func _process(delta):
 	get_input()
@@ -34,4 +39,4 @@ func _physics_process(delta):
 	if collisions.size() > 0:
 		var impact_velocity = get_linear_velocity().length()
 		if (impact_velocity > 300):
-			print("Impact velocity: ", impact_velocity)
+			emit_signal("crash_land")
