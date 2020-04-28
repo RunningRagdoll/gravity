@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Models/Planet_Debug_256x256.png" type="Texture" id=1]
 [ext_resource path="res://Models/CelestialBody/Gravity_Field.gd" type="Script" id=2]
@@ -10,7 +10,12 @@ radius = 128.102
 [sub_resource type="CircleShape2D" id=2]
 radius = 5807.4
 
-[node name="Celestial Body" type="KinematicBody2D"]
+[sub_resource type="CircleShape2D" id=3]
+radius = 132.706
+
+[node name="Celestial Body" type="KinematicBody2D" groups=[
+"Bodies",
+]]
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -27,3 +32,13 @@ script = ExtResource( 2 )
 [node name="Field" type="CollisionShape2D" parent="Gravity Field"]
 modulate = Color( 1, 1, 1, 0.266667 )
 shape = SubResource( 2 )
+
+[node name="Collision trigger" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Collision mask" type="CollisionShape2D" parent="Collision trigger" groups=[
+"Bodies",
+]]
+shape = SubResource( 3 )
+[connection signal="area_entered" from="Collision trigger" to="." method="_on_Collision_trigger_area_entered"]

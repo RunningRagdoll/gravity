@@ -8,8 +8,14 @@ var rotation_direction = 0
 var bouncing_velocity = Vector2()
 var max_speed = 5000
 
+var dead = false
+
 signal crash_land
 signal reset_level
+
+func _ready():
+	dead = false
+	sleeping = false
 
 func get_input():
 	if Input.is_action_pressed("ui_up"):
@@ -28,15 +34,23 @@ func _process(delta):
 	get_input()
 
 func _physics_process(delta):
-	set_applied_force(thrust.rotated(rotation))
-	set_applied_torque(rotation_direction * jaw_thrust)
-	if get_linear_velocity().length() > max_speed:
-		var new_speed = get_linear_velocity().normalized()
-		new_speed *= max_speed
-		set_linear_velocity(new_speed)
-	
-	var collisions = get_colliding_bodies() 
-	if collisions.size() > 0:
-		var impact_velocity = get_linear_velocity().length()
-		if (impact_velocity > 300):
-			emit_signal("crash_land")
+	if not dead:
+		set_applied_force(thrust.rotated(rotation))
+		set_applied_torque(rotation_direction * jaw_thrust)
+		if get_linear_velocity().length() > max_speed:
+			var new_speed = get_linear_velocity().normalized()
+			new_speed *= max_speed
+			set_linear_velocity(new_speed)
+		
+		var collisions = get_colliding_bodies() 
+		if collisions.size() > 0:
+			var impact_velocity = get_linear_velocity().length()
+			if (impact_velocity > 500):
+				die()
+
+func die():
+	emit_signal("crash_land")
+	dead = true
+	$"Ship front".hide()
+	$"Ship back leg".hide()
+	sleeping = true

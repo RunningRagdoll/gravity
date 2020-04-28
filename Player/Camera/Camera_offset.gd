@@ -20,4 +20,3 @@ func _physics_process(delta):
 	
 func relative_position():
 	return player.get_linear_velocity()
-	
