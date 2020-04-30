@@ -9,13 +9,16 @@ var bouncing_velocity = Vector2()
 var max_speed = 5000
 
 var dead = false
+var winning = false
 
 signal crash_land
 signal reset_level
+signal win
 
 func _ready():
 	dead = false
 	sleeping = false
+	winning = false
 
 func get_input():
 	if Input.is_action_pressed("ui_up"):
@@ -34,7 +37,7 @@ func _process(delta):
 	get_input()
 
 func _physics_process(delta):
-	if not dead:
+	if not (dead or winning):
 		set_applied_force(thrust.rotated(rotation))
 		set_applied_torque(rotation_direction * jaw_thrust)
 		if get_linear_velocity().length() > max_speed:
@@ -49,8 +52,14 @@ func _physics_process(delta):
 				die()
 
 func die():
-	emit_signal("crash_land")
-	dead = true
-	$"Ship front".hide()
-	$"Ship back leg".hide()
-	sleeping = true
+	if not winning:
+		emit_signal("crash_land")
+		dead = true
+		$"Ship front".hide()
+		$"Ship back leg".hide()
+		sleeping = true
+
+func _on_Timer_timeout():
+	emit_signal("win")
+	winning = true
+	

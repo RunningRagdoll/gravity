@@ -2,9 +2,10 @@ tool
 extends Node2D
 
 export(float, 0.0, 10000) var radius = 100 setget _set_radius # [pixels]
-export(float) var angular_velocity = 0 setget _set_angular_velocity # [rad/s]
+export(float, -2.0, 2.0) var angular_velocity = 0 setget _set_angular_velocity # [rad/s]
 export(bool) var random_initial_position = false setget _set_random_initial_position
 export(int, 2, 512) var number_of_steps = 128 setget _set_number_of_steps
+export(Texture) var sprite = load("res://Models/Planet_Debug_256x256.png")
 
 var angle = 0.0
 
@@ -15,6 +16,7 @@ func _ready():
 	if random_initial_position:
 		angle = randf() * 2 * PI
 	get_node("Celestial Body").position = orbital_position(radius, angle)
+	$"Celestial Body".get_child(0).set_texture(sprite)
 
 func _physics_process(delta):
 	if Engine.editor_hint:
