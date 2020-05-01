@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Title/Audiowide_48.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/Title/Options.gd" type="Script" id=2]
+
+[node name="Options" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 447.0
+margin_top = 212.0
+margin_right = 833.0
+margin_bottom = 508.0
+custom_constants/separation = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 386.0
+margin_bottom = 168.0
+
+[node name="Music label" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_right = 386.0
+margin_bottom = 62.0
+custom_fonts/font = ExtResource( 1 )
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 66.0
+margin_right = 386.0
+margin_bottom = 82.0
+step = 10.0
+value = 100.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 86.0
+margin_right = 386.0
+margin_bottom = 148.0
+custom_fonts/font = ExtResource( 1 )
+text = "Sound effects"
+
+[node name="SfxSlider" type="HSlider" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 152.0
+margin_right = 386.0
+margin_bottom = 168.0
+step = 10.0
+value = 100.0
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 228.0
+margin_right = 386.0
+margin_bottom = 296.0
+custom_fonts/font = ExtResource( 1 )
+text = "Back"
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
