@@ -33,10 +33,10 @@ func get_input():
 	if Input.is_action_just_pressed("ui_accept"):
 		emit_signal("reset_level")
 
-func _process(delta):
+func _process(_delta):
 	get_input()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not (dead or winning):
 		set_applied_force(thrust.rotated(rotation))
 		set_applied_torque(rotation_direction * jaw_thrust)
@@ -48,7 +48,7 @@ func _physics_process(delta):
 		var collisions = get_colliding_bodies() 
 		if collisions.size() > 0:
 			var impact_velocity = get_linear_velocity().length()
-			if (impact_velocity > 500):
+			if (impact_velocity > 600):
 				die()
 
 func die():
@@ -62,4 +62,3 @@ func die():
 func _on_Timer_timeout():
 	emit_signal("win")
 	winning = true
-	

@@ -16,6 +16,8 @@ rotation = -1.5708
 position = Vector2( -507.463, 864.234 )
 radius = 1000.0
 angular_velocity = -0.1
+is_goal = true
+body_angular_velocity = -0.1
 
 [node name="UI" parent="." instance=ExtResource( 2 )]
 script = ExtResource( 4 )

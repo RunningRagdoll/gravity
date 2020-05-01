@@ -7,7 +7,7 @@ var velocity_magnitude
 func _ready():
 	update_pivot_angle()
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	update_pivot_angle()
 
 func update_pivot_angle():

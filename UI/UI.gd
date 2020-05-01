@@ -1,6 +1,5 @@
 extends CanvasLayer
 
-signal restart_level
 var player_died = false setget _set_player_died, _get_player_died
 var player_won = false setget _set_player_won, _get_player_won
 

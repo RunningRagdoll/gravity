@@ -12,7 +12,7 @@ radius = 128.102
 radius = 5807.4
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 132.706
+radius = 129.34
 
 [node name="Celestial Body" type="KinematicBody2D" groups=[
 "Bodies",
