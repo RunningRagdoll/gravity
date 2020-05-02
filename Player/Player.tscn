@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Player/Spaceship_Normal_back_leg.png" type="Texture" id=1]
 [ext_resource path="res://Player/Spaceship_Diffuse_front.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Player/Camera/Camera.gd" type="Script" id=7]
 [ext_resource path="res://Player/Camera/Camera_offset.gd" type="Script" id=8]
 [ext_resource path="res://Player/flame.png" type="Texture" id=9]
+[ext_resource path="res://Player/Rocket.wav" type="AudioStream" id=10]
+[ext_resource path="res://Player/Oneshot-19.wav" type="AudioStream" id=11]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.2
@@ -76,4 +78,12 @@ one_shot = true
 position = Vector2( -200, 0 )
 rotation = 1.5708
 texture = ExtResource( 9 )
+
+[node name="ExhaustSFX" type="AudioStreamPlayer2D" parent="Flame"]
+position = Vector2( -0.000723998, -200 )
+rotation = -1.5708
+stream = ExtResource( 10 )
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

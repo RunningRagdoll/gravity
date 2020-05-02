@@ -25,9 +25,12 @@ func get_input():
 		thrust = Vector2(engine_thrust, 0)
 		if not (dead or winning):
 			$"Flame".show()
+			if not $"Flame/ExhaustSFX".is_playing():
+				$"Flame/ExhaustSFX".play()
 	else:
 		thrust = Vector2()
 		$"Flame".hide()
+		$"Flame/ExhaustSFX".stop()
 	rotation_direction = 0
 	if Input.is_action_pressed("ui_right"):
 		rotation_direction += 1
@@ -60,6 +63,7 @@ func die():
 		dead = true
 		$"Ship front".hide()
 		$"Ship back leg".hide()
+		$"Explosion".play()
 		sleeping = true
 
 func _on_Timer_timeout():
