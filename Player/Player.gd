@@ -23,8 +23,11 @@ func _ready():
 func get_input():
 	if Input.is_action_pressed("ui_up"):
 		thrust = Vector2(engine_thrust, 0)
+		if not (dead or winning):
+			$"Flame".show()
 	else:
 		thrust = Vector2()
+		$"Flame".hide()
 	rotation_direction = 0
 	if Input.is_action_pressed("ui_right"):
 		rotation_direction += 1
