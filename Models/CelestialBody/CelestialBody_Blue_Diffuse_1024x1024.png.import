@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CelestialBody_Normal_256x256.png-84aaf881e22c048d69eaa4ace855ff55.stex"
+path="res://.import/CelestialBody_Blue_Diffuse_1024x1024.png-1276e084f08132107c5f609e6e6dc10f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/CelestialBody/CelestialBody_Normal_256x256.png"
-dest_files=[ "res://.import/CelestialBody_Normal_256x256.png-84aaf881e22c048d69eaa4ace855ff55.stex" ]
+source_file="res://Models/CelestialBody/CelestialBody_Blue_Diffuse_1024x1024.png"
+dest_files=[ "res://.import/CelestialBody_Blue_Diffuse_1024x1024.png-1276e084f08132107c5f609e6e6dc10f.stex" ]
 
 [params]
 
