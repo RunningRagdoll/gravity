@@ -1,7 +1,7 @@
 # gravity
-Gravity simulation game
+Gravity simulation game for a game jam.
 
-Music by Angelica Edlund
+Music by Angelica Edlund.
 
 Interface Sound effects by Kenney.nl
 http://www.kenney.nl
