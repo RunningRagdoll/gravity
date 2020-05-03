@@ -63,7 +63,6 @@ func die():
 		dead = true
 		$"Ship front".hide()
 		$"Ship back leg".hide()
-		$"Explosion".play()
 		sleeping = true
 
 func _on_Timer_timeout():

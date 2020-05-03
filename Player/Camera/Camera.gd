@@ -7,7 +7,7 @@ export(NodePath) var player_path
 onready var player
 
 var zoom_state = 0
-var states = [3, 6, 9]
+var states = [3, 6]
 
 func _ready():
 	set_follow_smoothing(2)
