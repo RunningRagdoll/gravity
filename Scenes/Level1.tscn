@@ -1,21 +1,81 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Models/Orbit/Orbit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Models/Star/Star.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/UI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/UI.gd" type="Script" id=4]
+[ext_resource path="res://Models/CelestialBody/Planet/Planet_blue_orbit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Models/CelestialBody/Planet/Planet_red_orbit.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Models/CelestialBody/Moon/Moon_orbit.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Models/CelestialBody/Planet/Planet_green_orbit.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Models/CelestialBody/Planet/Planet_yellow_orbit.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Models/CelestialBody/Planet/Planet_purple_orbit.tscn" type="PackedScene" id=10]
 
 [node name="Level1" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-rotation = -1.5708
+[node name="Star" parent="." instance=ExtResource( 2 )]
 
-[node name="Start Planet" parent="." instance=ExtResource( 2 )]
-position = Vector2( -9.53674e-07, -199.521 )
-rotation = 1.51669
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 5999.73, 343.173 )
+rotation = 2.09439
 
 [node name="UI" parent="." instance=ExtResource( 3 )]
 script = ExtResource( 4 )
+
+[node name="Blue_orbit" parent="." instance=ExtResource( 5 )]
+radius = 6166.67
+angular_velocity = 0.05
+gravity = 106.167
+
+[node name="Moon_orbit" parent="Blue_orbit" instance=ExtResource( 7 )]
+position = Vector2( 6166.67, 0 )
+radius = 2016.67
+angular_velocity = -0.3
+random_initial_position = true
+
+[node name="Red_orbit" parent="." instance=ExtResource( 6 )]
+radius = 3516.66
+angular_velocity = 0.1
+is_goal = true
+body_angular_velocity = -0.4
+
+[node name="Green_orbit" parent="." instance=ExtResource( 8 )]
+radius = 13349.6
+angular_velocity = 0.06
+is_goal = true
+
+[node name="Moon_orbit" parent="Green_orbit" instance=ExtResource( 7 )]
+position = Vector2( 13349.6, 0 )
+radius = 1516.67
+angular_velocity = 0.462
+random_initial_position = true
+
+[node name="Moon_orbit2" parent="Green_orbit" instance=ExtResource( 7 )]
+position = Vector2( 13349.6, 0 )
+radius = 2350.0
+angular_velocity = 0.367
+random_initial_position = true
+
+[node name="Yellow_orbit" parent="." instance=ExtResource( 9 )]
+radius = 16683.3
+angular_velocity = 0.05
+is_goal = true
+
+[node name="Moon_orbit" parent="Yellow_orbit" instance=ExtResource( 7 )]
+position = Vector2( 16683.3, 0 )
+angular_velocity = 1.133
+
+[node name="Purple_orbit" parent="." instance=ExtResource( 10 )]
+radius = 20000.0
+angular_velocity = -0.06
+is_goal = true
+body_angular_velocity = -0.333
+gravity = 147.0
+
+[node name="Moon_orbit" parent="Purple_orbit" instance=ExtResource( 7 )]
+position = Vector2( 20000, 0 )
+radius = 2183.33
+angular_velocity = 0.233
 [connection signal="crash_land" from="Player" to="UI" method="_on_Player_crash_land"]
 [connection signal="reset_level" from="Player" to="UI" method="_on_Player_reset_level"]
 [connection signal="win" from="Player" to="UI" method="_on_Player_win"]

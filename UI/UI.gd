@@ -15,6 +15,8 @@ func _on_Player_crash_land():
 func _on_Player_reset_level():
 	if _get_player_died():
 		get_tree().reload_current_scene()
+	elif _get_player_won():
+		get_tree().reload_current_scene()
 	else:
 		pass
 

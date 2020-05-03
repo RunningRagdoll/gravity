@@ -41,6 +41,9 @@ func get_input():
 		rotation_direction -= 1
 	if Input.is_action_just_pressed("ui_accept"):
 		emit_signal("reset_level")
+	if Input.is_action_just_pressed("ui_cancel"):
+		Music2.stop()
+		get_tree().change_scene("res://Scenes/Title/Title_screen.tscn")
 
 func _process(_delta):
 	get_input()
@@ -57,7 +60,7 @@ func _physics_process(_delta):
 		var collisions = get_colliding_bodies() 
 		if collisions.size() > 0:
 			var impact_velocity = get_linear_velocity().length()
-			if (impact_velocity > 600):
+			if (impact_velocity > 1200):
 				die()
 
 func die():

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Models/Orbit/Orbit.gd" type="Script" id=1]
+[ext_resource path="res://Models/Landing_Zone.png" type="Texture" id=2]
+[ext_resource path="res://Models/CelestialBody/Planet/Planet_red.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.0456
+
+[node name="Red_orbit" type="Node2D"]
+script = ExtResource( 1 )
+radius = 850.0
+
+[node name="Planet_red" parent="." instance=ExtResource( 3 )]
+position = Vector2( 850, 0 )
+
+[node name="LandingZonePosition" type="Position2D" parent="Planet_red"]
+visible = false
+scale = Vector2( 4, 4 )
+
+[node name="Goal" type="Area2D" parent="Planet_red/LandingZonePosition"]
+position = Vector2( 2.07332, -63.0302 )
+scale = Vector2( 1.701, 0.509 )
+monitoring = false
+monitorable = false
+collision_layer = 4
+
+[node name="Shape" type="CollisionShape2D" parent="Planet_red/LandingZonePosition/Goal"]
+position = Vector2( -0.517494, 5.62051 )
+shape = SubResource( 1 )
+
+[node name="Landing zone" type="Sprite" parent="Planet_red/LandingZonePosition"]
+position = Vector2( 1.138, -54.2564 )
+scale = Vector2( 0.408436, 0.300717 )
+texture = ExtResource( 2 )
+[connection signal="body_entered" from="Planet_red/LandingZonePosition/Goal" to="Planet_red" method="_on_Goal_body_entered"]
+[connection signal="body_exited" from="Planet_red/LandingZonePosition/Goal" to="Planet_red" method="_on_Goal_body_exited"]

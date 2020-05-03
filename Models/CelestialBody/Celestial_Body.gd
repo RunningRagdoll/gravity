@@ -12,11 +12,14 @@ func _physics_process(delta):
 	rotation += angular_velocity * delta 
 
 func _on_Collision_trigger_area_entered(area):
-	area.get_parent().die()
+	if area.is_in_group("Player"):
+		area.get_parent().die()
 
 
 func _on_Goal_body_entered(body):
-	body.get_child(5).start()
+	if body.is_in_group("Player"):
+		body.get_child(5).start()
 
 func _on_Goal_body_exited(body):
-	body.get_child(5).stop()
+	if body.is_in_group("Player"):
+		body.get_child(5).stop()

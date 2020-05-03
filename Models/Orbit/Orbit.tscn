@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Models/Orbit/Orbit.gd" type="Script" id=1]
 [ext_resource path="res://Models/CelestialBody/Celestial_Body.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Models/Landing_Zone.png" type="Texture" id=3]
-[ext_resource path="res://Models/Planet_Debug_256x256.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0456
@@ -11,7 +10,6 @@ radius = 16.0456
 [node name="Orbit" type="Node2D"]
 script = ExtResource( 1 )
 radius = 850.0
-sprite = ExtResource( 4 )
 
 [node name="Celestial Body" parent="." instance=ExtResource( 2 )]
 position = Vector2( 850, 0 )
