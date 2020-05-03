@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Gravity.wav-53d7baf759e4639fe957de8ad5eb5e80.sample"
+
+[deps]
+
+source_file="res://Scenes/Gravity.wav"
+dest_files=[ "res://.import/Gravity.wav-53d7baf759e4639fe957de8ad5eb5e80.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

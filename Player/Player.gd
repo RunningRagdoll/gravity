@@ -19,6 +19,9 @@ func _ready():
 	dead = false
 	sleeping = false
 	winning = false
+	Music.stop()
+	if not Music2.is_playing():
+		Music2.play()
 
 func get_input():
 	if Input.is_action_pressed("ui_up"):
@@ -68,3 +71,6 @@ func die():
 func _on_Timer_timeout():
 	emit_signal("win")
 	winning = true
+	Music2.stop()
+	if not Music3.is_playing():
+		Music3.play()

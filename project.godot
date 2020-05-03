@@ -19,6 +19,12 @@ config/name="Gravity"
 run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Music="*res://Scenes/Music.tscn"
+Music2="*res://Scenes/Music2.tscn"
+Music3="*res://Scenes/Music3.tscn"
+
 [display]
 
 window/size/width=1280

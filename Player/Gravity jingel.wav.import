@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Gravity jingel.wav-cfdeba3ac8b29fb5fcb3a76bda96c2f6.sample"
+
+[deps]
+
+source_file="res://Player/Gravity jingel.wav"
+dest_files=[ "res://.import/Gravity jingel.wav-cfdeba3ac8b29fb5fcb3a76bda96c2f6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

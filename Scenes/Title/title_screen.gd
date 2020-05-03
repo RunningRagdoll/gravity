@@ -6,7 +6,8 @@ func _ready():
 	$"Menu/Center row/Buttons/New Game button".grab_focus()
 	for button in $"Menu/Center row/Buttons".get_children():
 		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load])
-		
+	if not Music.is_playing():
+		Music.play()
 
 func _on_Button_pressed(scene_to_load):
 	scene_path_to_load = scene_to_load
